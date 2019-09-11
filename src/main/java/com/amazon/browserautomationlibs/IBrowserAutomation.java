@@ -1,8 +1,8 @@
 package com.amazon.browserautomationlibs;
 
-import com.amazon.enums.BrowserType;
-
+import com.amazon.utils.CustomException;
 public interface IBrowserAutomation {
-void openWebBrowser(BrowserType browserType);
-void navigateWebBrowser();
+WebBrowserLaunch getWebBrowserLaunchAPI() throws CustomException;
+WebBrowserNavigation getWebBrowserNavigateAPI() throws CustomException;
+WebBrowserSynchronisation getWebBrowserSynchroniseAPI()throws CustomException;
 }

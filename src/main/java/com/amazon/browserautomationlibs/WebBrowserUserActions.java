@@ -1,26 +1,38 @@
 package com.amazon.browserautomationlibs;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import com.amazon.enums.LocatorStrategy;
+import com.amazon.enums.ExpectedWaitCondition;
+import com.amazon.enums.LocateElementBy;
 import com.amazon.utils.CustomException;
 
 public class WebBrowserUserActions {
 	private WebDriver driver;
 	private WebElementInspection inspectWebElement;
+	private WebBrowserSynchronisation synchronizeWebBrowser;
 
 	public WebBrowserUserActions(WebDriver driver) {
 		this.driver = driver;
-		setInspectWebElement(new WebElementInspection(driver));
 	}
 
-	public void type(LocatorStrategy locatorStrategy, Object obj, String data) throws CustomException {
-		getInspectWebElement().getWebElement(locatorStrategy, obj).clear();
-		getInspectWebElement().getWebElement(locatorStrategy, obj).sendKeys(data);
+	public void type(LocateElementBy locateElementBy, By elementFromUi, String data) throws CustomException {
+		try {
+			getSynchronizeWebBrowser().waitExplicit(elementFromUi, ExpectedWaitCondition.VISIBILE);
+			getInspectWebElement().getWebElement(locateElementBy, elementFromUi).clear();
+			getInspectWebElement().getWebElement(locateElementBy, elementFromUi).sendKeys(data);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
-	public void click(LocatorStrategy locatorStrategy, Object obj, String data) throws CustomException {
-		getInspectWebElement().getWebElement(locatorStrategy, obj).click();
+	public void click(LocateElementBy locateElementBy,  By elementFromUi) throws CustomException {
+		try {
+			getSynchronizeWebBrowser().waitExplicit(elementFromUi, ExpectedWaitCondition.VISIBILE);
+			getInspectWebElement().getWebElement(locateElementBy, elementFromUi).click();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 	}
 
@@ -50,5 +62,19 @@ public class WebBrowserUserActions {
 	 */
 	public void setInspectWebElement(WebElementInspection webElement) {
 		this.inspectWebElement = webElement;
+	}
+
+	/**
+	 * @return the synchronizeWebBrowser
+	 */
+	public WebBrowserSynchronisation getSynchronizeWebBrowser() {
+		return synchronizeWebBrowser;
+	}
+
+	/**
+	 * @param synchronizeWebBrowser the synchronizeWebBrowser to set
+	 */
+	public void setSynchronizeWebBrowser(WebBrowserSynchronisation synchronizeWebBrowser) {
+		this.synchronizeWebBrowser = synchronizeWebBrowser;
 	}
 }

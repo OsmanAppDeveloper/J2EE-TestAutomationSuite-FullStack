@@ -52,17 +52,12 @@ public class WebBrowserNavigation {
 
 	private void navigateToUrl(String url) {
 		try {
-			try {
-				if (url != null) {
-					getDriver().navigate().to(url);
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
+			if (url != null) {
+				getDriver().navigate().to(url);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	private void refreshPage() {

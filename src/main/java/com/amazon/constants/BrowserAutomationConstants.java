@@ -5,11 +5,10 @@ public class BrowserAutomationConstants {
 
 	}
 
-	public static final String WEB_DRIVERS_LOCATION = setPathToProjectRoot()
-			+ "//src//main//resources//WebDrivers";
+	public static final String WEB_DRIVERS_LOCATION_WINDOWS = setPathToProjectRoot() + "//src//main//resources//WebDrivers//Windows";
 
-	public static final String CHROME_DRIVER_WINDOWS_LOCATION = System.getProperty("user.dir")
-			+ "//src//main//resources//WebDrivers//Windows//chromedriver.exe";
+	public static final String CHROME_DRIVER_WINDOWS_LOCATION = WEB_DRIVERS_LOCATION_WINDOWS
+			+ "//chromedriver.exe";
 
 	public static final String FIREFOX_DRIVER_WINDOWS_LOCATION = System.getProperty("user.dir")
 			+ "//src//main//resources//WebDrivers//geckodriver.exe";
@@ -28,7 +27,11 @@ public class BrowserAutomationConstants {
 
 	public static final String EDGE_SYSTEM_PROPERTY = "webdriver.Edge.driver";
 
-	private static  String setPathToProjectRoot() {
+	// Error Messages
+
+	public static final String ERROR_MESSAGE_001 = "Set a Valid Web Locator Strategy";
+
+	private static String setPathToProjectRoot() {
 		String split = System.getProperty("user.dir");
 		String[] trim = split.split("Amazon-TestAutomationSuite-Web");
 		return trim[0];

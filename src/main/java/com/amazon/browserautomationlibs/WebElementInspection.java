@@ -4,7 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import com.amazon.enums.LocatorStrategy;
+import com.amazon.constants.BrowserAutomationConstants;
+import com.amazon.enums.LocateElementBy;
 import com.amazon.utils.CustomException;
 
 public class WebElementInspection {
@@ -14,29 +15,44 @@ public class WebElementInspection {
 
 	private WebDriver driver;
 
-	public WebElement getWebElement(LocatorStrategy locatorStrategy, Object obj) throws CustomException {
+	private WebElement webElement;
+
+	public WebElement getWebElement(LocateElementBy locateElementBy, By elementFromUi) throws CustomException {
 		try {
 			WebElement element = null;
-			switch (locatorStrategy) {
+			switch (locateElementBy) {
 			case ID:
-				element = getDriver().findElement(By.id(obj.toString()));
+				element = getDriver().findElement(elementFromUi);
 				break;
 			case NAME:
-				element = getDriver().findElement(By.name(obj.toString()));
+				element = getDriver().findElement(elementFromUi);
 				break;
 			case CLASS_NAME:
-				element = getDriver().findElement(By.className(obj.toString()));
+				element = getDriver().findElement(elementFromUi);
+				break;
+			case CSS_SELECTOR:
+				element = getDriver().findElement(elementFromUi);
 				break;
 			case XPATH:
-				element = getDriver().findElement(By.xpath(obj.toString()));
+				element = getDriver().findElement(elementFromUi);
+				break;
+			case LINK_TEXT:
+				element = getDriver().findElement(elementFromUi);
+				break;
+			case PARTIAL_LINK_TEXT:
+				element = getDriver().findElement(elementFromUi);
+				break;
+			case TAG_NAME:
+				element = getDriver().findElement(elementFromUi);
 				break;
 			default:
 				break;
 			}
 			if (element == null) {
-				throw new CustomException("Set a Valid Locatory Strategy");
+				throw new CustomException(BrowserAutomationConstants.ERROR_MESSAGE_001);
 			} else {
-				return element;
+				setWebElement(element);
+				return getWebElement();
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -44,7 +60,6 @@ public class WebElementInspection {
 		}
 
 	}
-
 	/**
 	 * @return the driver
 	 */
@@ -57,6 +72,18 @@ public class WebElementInspection {
 	 */
 	public void setDriver(WebDriver driver) {
 		this.driver = driver;
+	}
+	/**
+	 * @return the webElement
+	 */
+	public WebElement getWebElement() {
+		return webElement;
+	}
+	/**
+	 * @param webElement the webElement to set
+	 */
+	private void setWebElement(WebElement webElement) {
+		this.webElement = webElement;
 	}
 
 }

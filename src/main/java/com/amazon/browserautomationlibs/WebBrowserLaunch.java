@@ -16,11 +16,13 @@ public class WebBrowserLaunch {
 	private WebDriver driver;
 
 	/**
-	 *
+	 * Des
+	 * @param desination
 	 * @param os
 	 * @param browserType
+	 * @throws CustomException
 	 */
-	public void openWebBrowserWithDefaultSettings(Destination desination, OperatingSystem os, BrowserType browserType) {
+	public void openWebBrowserWithDefaultSettings(Destination desination, OperatingSystem os, BrowserType browserType) throws CustomException {
 		try {
 			switch (browserType) {
 			case CHROME:
@@ -36,11 +38,14 @@ public class WebBrowserLaunch {
 				openEdgeBrowser(desination, os);
 				break;
 			default:
+				openChromeBrowser(desination, os);
 				break;
 			}
+			new WebBrowserSessionManagement(getDriver()).maximizeBrowserWindow();
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			throw new CustomException(e.getMessage());
 		}
 
 	}
@@ -153,7 +158,7 @@ public class WebBrowserLaunch {
  *
  * @param driver
  */
-	public void setDriver(WebDriver driver) {
+	private void setDriver(WebDriver driver) {
 		this.driver = driver;
 	}
 }

@@ -1,5 +1,6 @@
 package com.amazon.browserautomationlibs;
 
+import org.apache.commons.lang3.ObjectUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -10,7 +11,7 @@ import com.amazon.utils.CustomException;
 public class WebBrowserUserActions {
 	private WebDriver driver;
 	private WebElementInspection inspectWebElement;
-	private WebBrowserSynchronisation synchronizeWebBrowser;
+	private WebElementSynchronisation synchronizeWebElement;
 
 	public WebBrowserUserActions(WebDriver driver) {
 		this.driver = driver;
@@ -18,7 +19,7 @@ public class WebBrowserUserActions {
 
 	public void type(LocateElementBy locateElementBy, By elementFromUi, String data) throws CustomException {
 		try {
-			getSynchronizeWebBrowser().waitExplicit(elementFromUi, ExpectedWaitCondition.VISIBILE);
+			getSynchronizedWebElement().waitExplicit(elementFromUi, ExpectedWaitCondition.VISIBILE);
 			getInspectWebElement().getWebElement(locateElementBy, elementFromUi).clear();
 			getInspectWebElement().getWebElement(locateElementBy, elementFromUi).sendKeys(data);
 		} catch (Exception e) {
@@ -28,7 +29,7 @@ public class WebBrowserUserActions {
 
 	public void click(LocateElementBy locateElementBy,  By elementFromUi) throws CustomException {
 		try {
-			getSynchronizeWebBrowser().waitExplicit(elementFromUi, ExpectedWaitCondition.VISIBILE);
+		//	getSynchronizedWebElement().waitExplicit(elementFromUi, ExpectedWaitCondition.VISIBILE);
 			getInspectWebElement().getWebElement(locateElementBy, elementFromUi).click();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -54,7 +55,12 @@ public class WebBrowserUserActions {
 	 * @return the webElement
 	 */
 	public WebElementInspection getInspectWebElement() {
-		return inspectWebElement;
+		if (ObjectUtils.isEmpty(inspectWebElement)) {
+			setInspectWebElement(new WebElementInspection(getDriver()));
+			return inspectWebElement;
+		}else {
+			return inspectWebElement;
+		}
 	}
 
 	/**
@@ -67,14 +73,19 @@ public class WebBrowserUserActions {
 	/**
 	 * @return the synchronizeWebBrowser
 	 */
-	public WebBrowserSynchronisation getSynchronizeWebBrowser() {
-		return synchronizeWebBrowser;
+	public WebElementSynchronisation getSynchronizedWebElement() {
+		if (ObjectUtils.isEmpty(synchronizeWebElement)) {
+			setSynchronizedWebElement(new WebElementSynchronisation(getDriver()));
+			return synchronizeWebElement;
+		}else {
+			return synchronizeWebElement;
+		}
 	}
 
 	/**
 	 * @param synchronizeWebBrowser the synchronizeWebBrowser to set
 	 */
-	public void setSynchronizeWebBrowser(WebBrowserSynchronisation synchronizeWebBrowser) {
-		this.synchronizeWebBrowser = synchronizeWebBrowser;
+	public void setSynchronizedWebElement(WebElementSynchronisation synchronizeWebBrowser) {
+		this.synchronizeWebElement = synchronizeWebBrowser;
 	}
 }

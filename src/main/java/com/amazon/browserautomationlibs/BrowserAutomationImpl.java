@@ -13,7 +13,7 @@ public class BrowserAutomationImpl implements IBrowserAutomation {
 
 	private WebBrowserNavigation navigateBrowser;
 
-	private WebBrowserSynchronisation synchroniseBrowser;
+	private WebElementSynchronisation synchroniseBrowser;
 
 	private WebBrowserUserActions webBrowserUserAction;
 
@@ -64,10 +64,10 @@ public class BrowserAutomationImpl implements IBrowserAutomation {
 		}
 	}
 
-	public WebBrowserSynchronisation getWebBrowserSynchroniseAPI() throws CustomException {
+	public WebElementSynchronisation getWebBrowserSynchroniseAPI() throws CustomException {
 		try {
 			if (ObjectUtils.isEmpty(getSynchroniseBrowser())) {
-				setSynchroniseBrowser(new WebBrowserSynchronisation(getOpenBrowser().getDriver()));
+				setSynchroniseBrowser(new WebElementSynchronisation(getOpenBrowser().getDriver()));
 				return getSynchroniseBrowser();
 			} else {
 				return getSynchroniseBrowser();
@@ -137,14 +137,14 @@ public class BrowserAutomationImpl implements IBrowserAutomation {
 	/**
 	 * @return the synchroniseBrowser
 	 */
-	private WebBrowserSynchronisation getSynchroniseBrowser() {
+	private WebElementSynchronisation getSynchroniseBrowser() {
 		return synchroniseBrowser;
 	}
 
 	/**
 	 * @param synchroniseBrowser the synchroniseBrowser to set
 	 */
-	private void setSynchroniseBrowser(WebBrowserSynchronisation synchroniseBrowser) {
+	private void setSynchroniseBrowser(WebElementSynchronisation synchroniseBrowser) {
 		this.synchroniseBrowser = synchroniseBrowser;
 	}
 

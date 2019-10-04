@@ -11,6 +11,9 @@ public class LandingPage extends BasePage {
 
 	By helloSignInLink = By.id(LandingPageOR.HELLO_SIGN_IN_LINK);
 
+	public LandingPage() {
+		System.out.println("I am in Landing Page");
+	}
 	public void clickHelloSignIn() throws CustomException {
 		try {
 		getBrowserAutomation().getWebBrowserUserActionsAPI().click(LocateElementBy.ID, helloSignInLink);

@@ -7,24 +7,20 @@ import com.amazon.browserautomationlibs.IBrowserAutomation;
 import com.amazon.utils.CustomException;
 
 public class BasePage {
-	private IBrowserAutomation browserAutomation;
+
+	private static IBrowserAutomation browserAutomation;
 
 	/**
 	 * @return the browserAutomation
 	 * @throws CustomException
 	 */
-	public IBrowserAutomation getBrowserAutomation() throws CustomException {
+
+	public static IBrowserAutomation getBrowserAutomation() throws CustomException {
 		if (ObjectUtils.isEmpty(browserAutomation)) {
-			setBrowserAutomation(new BrowserAutomationImpl());
-			return browserAutomation;
+			return browserAutomation = new BrowserAutomationImpl();
 		} else {
 			return browserAutomation;
 		}
 	}
-	/**
-	 * @param browserAutomation the browserAutomation to set
-	 */
-	private void setBrowserAutomation(IBrowserAutomation browserAutomation) {
-		this.browserAutomation = browserAutomation;
-	}
+
 }

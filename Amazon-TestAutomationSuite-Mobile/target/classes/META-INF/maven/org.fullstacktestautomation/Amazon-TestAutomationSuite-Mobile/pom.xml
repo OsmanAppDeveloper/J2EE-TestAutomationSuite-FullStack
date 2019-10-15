@@ -7,9 +7,7 @@
     <artifactId>full-stack-test-automation</artifactId>
     <version>1.0</version>
   </parent>
-  <groupId>org.fullstacktestautomation</groupId>
   <artifactId>Amazon-TestAutomationSuite-Mobile</artifactId>
-  <version>1.0</version>
    <packaging>jar</packaging>
   <name>Amazon-TestAutomationSuite-Mobile</name>
   <url>http://maven.apache.org</url>
@@ -17,11 +15,10 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
+  <dependency>
+  	<groupId>org.fullstacktestautomation</groupId>
+  	<artifactId>Amazon-TestAutomationSuite-Utils</artifactId>
+  	<version>1.0</version>
+  </dependency>
   </dependencies>
 </project>

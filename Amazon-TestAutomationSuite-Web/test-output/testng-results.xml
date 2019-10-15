@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="6842" started-at="2019-10-03T04:32:08Z" finished-at="2019-10-03T04:32:15Z">
+  <suite name="Suite" duration-ms="50" started-at="2019-10-15T02:18:47Z" finished-at="2019-10-15T02:18:47Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="6842" started-at="2019-10-03T04:32:08Z" finished-at="2019-10-03T04:32:15Z">
+    <test name="Test" duration-ms="50" started-at="2019-10-15T02:18:47Z" finished-at="2019-10-15T02:18:47Z">
       <class name="org.amazon.testautomationsuite.web.smoke.RegisterUserTest">
-        <test-method status="PASS" signature="automationTestScript()[pri:0, instance:org.amazon.testautomationsuite.web.smoke.RegisterUserTest@3349e9bb]" name="automationTestScript" duration-ms="6802" started-at="2019-10-03T00:32:08Z" finished-at="2019-10-03T00:32:15Z">
+        <test-method status="PASS" signature="automationTestScript()[pri:0, instance:org.amazon.testautomationsuite.web.smoke.RegisterUserTest@66480dd7]" name="automationTestScript" duration-ms="23" started-at="2019-10-14T22:18:47Z" finished-at="2019-10-14T22:18:47Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- automationTestScript -->
       </class> <!-- org.amazon.testautomationsuite.web.smoke.RegisterUserTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
 </testng-results>

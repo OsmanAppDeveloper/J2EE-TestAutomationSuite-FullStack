@@ -4,14 +4,14 @@
 	xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
+	<!--Parent Pom  -->
 	<parent>
 		<groupId>org.fullstacktestautomation</groupId>
 		<artifactId>full-stack-test-automation</artifactId>
 		<version>1.0</version>
 	</parent>
-	<groupId>org.fullstacktestautomation</groupId>
+	<!--Child Pom-->
 	<artifactId>Amazon-TestAutomationSuite-Web</artifactId>
-	<version>1.0</version>
 	<packaging>jar</packaging>
 	<name>Amazon-TestAutomationSuite-Web</name>
 	<url>http://maven.apache.org</url>
@@ -20,25 +20,9 @@
 	</properties>
 	<dependencies>
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
-			<scope>test</scope>
+			<groupId>org.fullstacktestautomation</groupId>
+			<artifactId>Amazon-TestAutomationSuite-Utils</artifactId>
+			<version>1.0</version>
 		</dependency>
 	</dependencies>
-	<profiles>
-		<profile>
-			<id>prod</id>
-			<properties>
-				<build.profile.id>dev</build.profile.id>
-			</properties>
-			<build>
-				<resources>
-					<resource>
-						<directory>src/main/profiles/prod</directory>
-					</resource>
-				</resources>
-			</build>
-		</profile>
-	</profiles>
 </project>

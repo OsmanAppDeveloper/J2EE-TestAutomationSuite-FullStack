@@ -17,134 +17,38 @@
 	</description>
 
 	<modules>
+		<module>Amazon-TestAutomationSuite-Utils</module>
+		<module>Amazon-TestAutomationSuite-Api</module>
 		<module>Amazon-TestAutomationSuite-Web</module>
 		<module>Amazon-TestAutomationSuite-Mobile</module>
-		<module>Amazon-TestAutomationSuite-Api</module>
-		<module>Amazon-TestAutomationSuite-Performance</module>
-		<module>Amazon-TestAutomationSuite-Visual</module>
-		<module>Amazon-TestAutomationSuite-Accessibility</module>
 	</modules>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<itext.version>RELEASE</itext.version>
 	</properties>
 	<build>
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-compiler-plugin</artifactId>
-					<version>3.8.1</version>
-					<configuration>
-						<source>1.8</source>
-						<target>1.8</target>
-					</configuration>
-				</plugin>
-			</plugins>
-		</pluginManagement>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>3.7.1</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>3.0.0</version>
+			</plugin>
+		</plugins>
 	</build>
 	<dependencies>
-		<!-- Logging Api's -->
-		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-core</artifactId>
-			<version>2.12.1</version>
-		</dependency>
-		<!-- General Purpose Api's -->
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-			<version>3.9</version>
-		</dependency>
-		<dependency>
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava</artifactId>
-			<version>28.1-jre</version>
-		</dependency>
-		<!--Excel Parsing Libraries -->
-		<dependency>
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi</artifactId>
-			<version>4.1.0</version>
-		</dependency>
-		<!--JSON Parsing Api's -->
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-core</artifactId>
-			<version>2.10.0.pr2</version>
-		</dependency>
-		<!-- Xml Parsing Api's -->
-		<dependency>
-			<groupId>xerces</groupId>
-			<artifactId>xercesImpl</artifactId>
-			<version>2.11.0</version>
-		</dependency>
-		<!--PDF Parsing Api's -->
-		<dependency>
-			<groupId>com.itextpdf</groupId>
-			<artifactId>itext7-core</artifactId>
-			<version>${itext.version}</version>
-			<type>pom</type>
-		</dependency>
-
-		<!--HTML Parsing Api's -->
-		<dependency>
-			<groupId>org.jsoup</groupId>
-			<artifactId>jsoup</artifactId>
-			<version>1.12.1</version>
-		</dependency>
-
-		<!--Unit Testing Api's -->
-		<dependency>
-			<groupId>org.testng</groupId>
-			<artifactId>testng</artifactId>
-			<version>6.11</version>
-			<scope>test</scope>
-		</dependency>
-		<!-- Browser Automation Api's -->
-		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-java</artifactId>
-			<version>4.0.0-alpha-2</version>
-		</dependency>
-		<dependency>
-			<groupId>io.github.bonigarcia</groupId>
-			<artifactId>webdrivermanager</artifactId>
-			<version>3.6.2</version>
-			<scope>test</scope>
-		</dependency>
-		<!-- Mobile Automation Api's -->
-		<dependency>
-			<groupId>io.appium</groupId>
-			<artifactId>java-client</artifactId>
-			<version>7.2.0</version>
-		</dependency>
-		<!-- Rest Web Services Automation Api's -->
-		<dependency>
-			<groupId>io.rest-assured</groupId>
-			<artifactId>rest-assured</artifactId>
-			<version>4.1.0</version>
-			<scope>test</scope>
-		</dependency>
-		<!--Visual Automation Api -->
-		<dependency>
-			<groupId>com.galenframework</groupId>
-			<artifactId>galen-java-support</artifactId>
-			<version>2.0.3</version>
-		</dependency>
-		<!--Performance Test Automation Api -->
-		<dependency>
-			<groupId>io.gatling.highcharts</groupId>
-			<artifactId>gatling-charts-highcharts</artifactId>
-			<version>3.2.1</version>
-		</dependency>
-		<!--Sending Mail Api -->
-		<dependency>
-			<groupId>org.simplejavamail</groupId>
-			<artifactId>simple-java-mail</artifactId>
-			<version>5.3.0</version>
-		</dependency>
-
 	</dependencies>
-
 </project>

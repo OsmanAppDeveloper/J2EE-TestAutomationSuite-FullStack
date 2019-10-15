@@ -1,4 +1,4 @@
-package org.amazon.testautomationsuite.web.smoke;
+package org.amazon.testautomationsuite.mobile.smoke;
 
 import org.testng.annotations.Test;
 
@@ -8,6 +8,6 @@ public class RegisterUserTest {
 
 	@Test
 	public void automationTestScript() throws CustomException {
-		System.out.println("Web Automation Suite");
+		System.out.println("Api Automation Suite");
 	}
 }
